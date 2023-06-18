@@ -1,8 +1,9 @@
 "use client"
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default async function Home() {
-
+  const router = useRouter();
   const req = await fetch("http://localhost:3003/produtos", {
     cache: "no-cache"
   });
@@ -17,7 +18,7 @@ export default async function Home() {
         <p>{produtos.data_cadastro}</p>
           <p>{produtos.preco}</p>
           <p>{produtos.descricao}</p>
-          <p>{produtos.imagem}</p>
+          <img src={produtos.imagem}></img>
           <Link href={`/produto/${produtos.codigo}`}>ver mais</Link>
         </div>
       ))}
