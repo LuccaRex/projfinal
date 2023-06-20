@@ -9,23 +9,24 @@ export default function Cadastro() {
     const [data_cadastro, setData_cadastro] = useState();
     const [preco, setPreco] = useState();
     const [descricao, setDescricao] = useState();
-    const [imagem, setImagem] = useState('');
+    const [imagem, setImagem] = useState("");
 
     const cadastrar = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         
         const produto = {
             titulo: titulo,
             data_cadastro: data_cadastro,
             preco: preco,
             descricao: descricao,
-            imagem: imagem
-        }
+            imagem: imagem,
+        };
+
         const produtoJson = JSON.stringify(produto);
-        fetch("http://localhost:3003/produtos", {
+        fetch("http://localhost:3003/produto", {
             method: "POST",
             headers: { "content-Type": "application/json" },
-            body: produtoJson
+            body: produtoJson,
         })
         .then(function(){ 
             route.push("/");
@@ -40,31 +41,31 @@ export default function Cadastro() {
                     type="text"
                     placeholder='Titulo:'
                     nome="titulo"
-                    onChange={e => setTitulo(e.target.value)}
+                    onChange={(e) => setTitulo(e.target.value)}
                 /><br/>
                 <input
                     type="text"
                     placeholder='Data:'
                     nome="data_cadastro"
-                    onChange={e => setData_cadastro(e.target.value)}
+                    onChange={(e) => setData_cadastro(e.target.value)}
                 /><br/>
                 <input
                     type="text"
                     placeholder='Preço:'
                     nome="preco"
-                    onChange={e => setPreco(e.target.value)}
+                    onChange={(e) => setPreco(e.target.value)}
                 /><br/>
                  <input
                     type="text"
-                    placeholder='Descriçao:'
+                    placeholder='Descrição:'
                     nome="descricao"
-                    onChange={e => setDescricao(e.target.value)}
+                    onChange={(e) => setDescricao(e.target.value)}
                 /><br/>
                  <input
                     type="text"
                     placeholder='Imagem:'
                     nome="imagem"
-                    onChange={e => setImagem(e.target.value)}
+                    onChange={(e) => setImagem(e.target.value)}
                 /><br/>
                 <button type='submit'>Cadastrar</button>
                 <div>

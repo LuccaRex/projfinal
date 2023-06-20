@@ -30,7 +30,7 @@ class Produto {
       return await connect.query(sql, values);
     } catch (error) {
       console.error('Erro em insert:', error);
-      throw error;
+      throw error ;
     }
   }
 
